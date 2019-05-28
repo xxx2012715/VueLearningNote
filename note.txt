@@ -1,0 +1,20 @@
+note:
+	{{x}}： 插值表达式,用于输出对象属性和函数返回值
+	属性：
+	el	element, 即需要获取的元素，必须是html中的(根)容器元素
+	data 	数据的存储
+	methods	 方法
+
+	事件：
+	v-bind(data-binding)	属性绑定
+	v-html 	 用于输出 html 代码
+	v-on:click/dblclick/mousemove		事件绑定
+	v-on:click.once		点击事件只会触发一次
+	v-on:click.stop/submit.prevent/
+	v-if/else
+
+	计算属性computed
+	{{ message.splite('').reverse().join('') }}
+
+	监听属性：
+	$watch, oval(old_value), nval(new_value)

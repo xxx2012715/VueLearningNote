@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+
+		/*#app {
+			width: 200px;
+			height: 200px;
+			border: 1px solid black;
+			text-align: center;
+			line-height: 200px;
+		}*/
+
+	</style>
+</head>
+<body>
+	<!-- afternoon -->
+	<!-- test01 -->
+	<!-- <div id="app">
+		<h1>{{ greet() }}</h1>
+		<p>Name: {{ name }}</p>
+		<p>Job: {{ job }}</p>
+		<a v-bind:href="Website">Web开发</a>
+		<p v-html="WebsiteTag"></p>
+	</div>
+
+	<script src="../vue.min.js"></script>
+	<script>
+		var app = new Vue({
+			el: '#app',
+			data: {
+				name: '米斯特·徐',
+				job: 'programmer',
+				Website: 'http://www.baidu.com',
+				WebsiteTag: '<a href="http://www.baidu.com">WebsiteTag</a>'
+			}, 
+			methods: {
+				greet: function(){
+					return 'Good afternoon';
+				}
+			}
+		});
+	</script> -->
+
+
+	<!-- test02: event -->
+	<!-- <div id="app" @mousemove="location">
+		{{x}},{{y}}
+	</div>
+
+	<script src="../vue.min.js"></script>
+	<script>
+		var app = new Vue({
+			el: '#app',
+			data: {
+				x: 0,
+				y: 0
+			}, 
+			methods: {
+				location: function(event){
+					this.x = event.offsetX;
+					this.y = event.offsetY;
+				}
+			}
+		});
+	</script> -->
+
+	
+	<!-- test03: data out of vue -->
+	<!-- <div id="app">
+		{{ cont }}, {{ test }}
+	</div>
+
+	<script src="../vue.min.js"></script>
+	<script>
+		var data = { cont: 'none', test: 'test.txt' };
+		var app = new Vue({
+			el: '#app',
+			data: data
+		});
+	</script> -->
+
+
+	<!-- test04 -->
+	<!-- <div id="app">
+		<ul>
+			<template v-for="site in sites">
+				<li>{{site.name}}</li>
+				<li>-------------</li>
+			</template>
+		</ul>
+	</div>
+
+	<script src="../vue.min.js"></script>
+	<script>
+		var app = new Vue({
+			el: '#app',
+			data: {
+				sites: [
+					{name: 'aaaa'},
+					{name: 'bbbb'},
+					{name: 'cccc'}
+				]
+			}
+		});
+	</script> -->
+
+
+	<!-- test05: Iteration -->
+	<!-- <div id="app">
+		<ul>
+			<li v-for="value in object">{{value}}</li>
+		</ul>
+	</div>
+
+	<script src="../vue.min.js"></script>
+	<script>
+		var app = new Vue({
+			el: '#app',
+			data: {
+				//此时数据为一个对象，可通过value in object进行遍历
+				object: {
+					name: 'kate',
+					age: '22',
+					job: 'programmer'
+				}
+			}
+		});
+	</script> -->
+
+
+	<!-- test06: key-value print  -->
+	<!-- <div id="app">
+		<ul>
+			<li v-for="(value, key) in object">
+				 {{ key }} : {{ value }}
+			</li>
+		</ul>
+	</div>
+
+	<script src="../vue.min.js"></script>
+	<script>
+		var app = new Vue({
+			el: '#app',
+			data: {
+				//此时数据为一个对象，可通过value in object进行遍历
+				object: {
+					name: 'kate',
+					age: '22',
+					job: 'programmer'
+				}
+			}
+		});
+	</script> -->
+
+
+	<!-- test07: three params -->
+	<!-- <div id="app">
+		<ul>
+			<li v-for="(value, key, index) in object">
+				 {{ index }}. {{ key }} : {{ value }}
+			</li>
+		</ul>
+	</div>
+
+	<script src="../vue.min.js"></script>
+	<script>
+		var app = new Vue({
+			el: '#app',
+			data: {
+				//此时数据为一个对象，可通过value in object进行遍历
+				object: {
+					name: 'kate',
+					age: '22',
+					job: 'programmer'
+				}
+			}
+		});
+	</script> -->
+
+
+	<!-- test08: int number iterator -->
+	<!-- <div id="app">
+		<ul>
+			<li v-for="n in 10">{{ n }}</li>
+		</ul>
+	</div>
+
+	<script src="../vue.min.js"></script>
+	<script>
+		var app = new Vue({
+			el: '#app'
+		});
+	</script> -->
+
+
+	<!-- test09: reverse message -->
+	<!-- <div id="app">
+		<p>原始字符串: {{ message }}</p>
+		<p>计算后反转字符串: {{ reversedMessage }}</p>
+	</div>
+
+	<script src="../vue.min.js"></script>
+	<script>
+		var app = new Vue({
+			el: '#app',
+			data: {
+				message: 'kate!'
+			},
+			computed: {
+				reversedMessage: function(){
+					return this.message.split('').reverse().join('');
+				}
+			}
+		});
+	</script> -->
+
+
+	<!-- test10: 监听事件 -->
+	<!-- <div id="app">
+		<p>Counter: {{ counter }}</p>
+		<button @click="counter++">点我</button>
+	</div>
+
+	<script src="../vue.min.js"></script>
+	<script>
+		var app = new Vue({
+			el: '#app',
+			data: {
+				counter: 0
+			}
+		});
+		app.$watch('counter',function(nval, oval){
+			alert('the counter value has changed from ' + oval + ' to ' + nval + ' !');
+		});
+
+	</script> -->
+
+
+	<!-- test11: 千米和米的转换 -->
+	<div id="app">
+		千米: <input type="text" v-model="kilometers">
+		米: <input type="text" v-model="meters">
+	</div>
+	<p id="info"></p>
+
+	<script src="../vue.min.js"></script>
+	<script>
+		var app = new Vue({
+			el: '#app',
+			data: {
+				kilometers: 0,
+				meters: 0
+			},
+			watch: {
+				kilometers: function(val){
+					// this.kilometers = val;
+					this.meters = val * 1000;
+				},
+				meters: function(val){
+					// this.meters = val;
+					this.kilometers = val / 1000;
+				}
+			}
+		});
+		app.$watch('kilometers', function(newValue, oldValue){
+			document.getElementById('info').innerHTML = 'the kilometers has been changed from ' + oldValue + ' to ' + newValue + ' !';
+		});
+		
+	</script>
+</body>
+</html>
