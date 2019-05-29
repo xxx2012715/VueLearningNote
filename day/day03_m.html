@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		/*仿购物车样式*/
+		/*table {
+			border: 1px solid black;
+		}
+		table {
+			width: 100%;
+		}
+
+		th {
+			height: 50px;
+		}
+		th, td {
+			border-bottom: 1px solid #ddd;
+		}
+		td {
+			text-align: center;
+		}*/
+
+
+	</style>
+</head>
+<body>
+	<!-- test01: 仿购物车 -->
+	<!-- <div id="app">
+		<table>
+			<tr>
+				<th>序号</th>
+				<th>名称</th>
+				<th>价格</th>
+				<th>数量</th>
+				<th>操作</th>
+			</tr>
+			<tr v-for="iphone in list">
+				<td> {{iphone.id}} </td>
+				<td> {{iphone.name}} </td>
+				<td> {{iphone.price}} </td>
+				<td>
+					<button :disabled="iphone.count === 0" @click="iphone.count--">-</button>
+					{{iphone.count}}
+					<button @click="iphone.count++">+</button>
+				</td>
+				<td>
+					<button @click="iphone.count=0">移除</button>
+				</td>
+			</tr>
+		</table>
+		总价 ： {{totalprice()}} 元
+	</div> -->
+	
+
+	<!-- test02: 多选框 -->
+	<!-- <div id="app">
+		<p>多选框：</p>
+		<input type="checkbox" id="chrome" value="chrome" v-model.lazy="chkbox">
+		<label for="chrome">chrome</label>
+		<input type="checkbox" id="google" value="google" v-model="chkbox">
+		<label for="google">google</label>
+		<input type="checkbox" id="baidu" value="baidu" v-model="chkbox">
+		<label for="baidu">baidu</label>
+		<br>
+		<label>you have choosed the selection of {{ chkbox }}</label>
+
+	</div> -->
+
+
+	<!-- test03: component -->
+	
+
+	
+	<script src="../vue.min.js"></script>
+	<script>
+		// test01: 仿购物车
+		// var app = new Vue({
+		// 	el: '#app',
+		// 	data: {
+		// 		list: [
+		// 			{
+		// 				id: 1,
+		// 				name: 'iphone 8',
+		// 				price: 5099,
+		// 				count: 1
+		// 			},
+		// 			{
+		// 				id: 2,
+		// 				name: 'iphone xs',
+		// 				price: 8699,
+		// 				count: 1
+		// 			},
+		// 			{
+		// 				id: 3,
+		// 				name: 'iphone xr',
+		// 				price: 6499,
+		// 				count: 1
+		// 			}
+		// 		]
+		// 	},
+		// 	methods: {
+		// 		totalprice: function(){
+		// 			var totalprice = 0;
+		// 			for(let i = 0; i < this.list.length; i++){
+		// 				totalprice += this.list[i].price * this.list[i].count;
+		// 			}
+		// 			return totalprice;
+		// 		}
+		// 	}
+		// });
+		//总结：
+		//		v-bind:disabled="iphone.count===0"
+		//		v-for="iphone in list"
+		//		totalprice() for this.list.length this.list[i].price 
+		//		v-on:click="iphone.count++/--"
+				
+		
+		// test02: 
+		// var app =new Vue({
+		// 	el: '#app',
+		// 	data: {
+		// 		chkbox: []
+		// 	}
+		// });
+
+
+		// test03: component
+
+
+	</script>
+
+</body>
+</html>
