@@ -101,8 +101,8 @@ day04:
 	Vue中的插槽(slot):
 		父组件<child>	
 				<p slot="s1"></p> 
-					content	
-				<p slot="s2"></p>  
+				<div class="cont"></div>
+				<p slot="s2"></p>
 			 </child>
 		子组件template: 
 			<slot name="s1"></slot>
@@ -112,6 +112,17 @@ day04:
 		{{x.item}}
 
 		<slot v-for="item of list" :item=item></slot>
+
+	toogle效果:	v-once将元素存至缓存中而不必删除或新增dom节点
+		1.v-if, is(a) ? b : a;
+		2.component :is=""
+
+	动画:	transition
+		1.当两种类型的动画效果同时存在时，可以通过type属性指定某一种为参考时长，duration属性自定义动画时长，name属性命名动画
+		2.enter-active-class="animated xx"
+		3.js: @before-enter/enter
+
+		
 
 
 

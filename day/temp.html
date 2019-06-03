@@ -1,10 +1,40 @@
-<div>
-	<template slot-scope="x">
-		{{x.item}}
-	</template>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.fade-enter, .fade-leave {
+			opacity: 0;
+		}
+		.fade-enter-active, .fade-leave-active {
+			transition: opacity 1.5s;
+		}
+	</style>
+</head>
+<body>
+	<div id="root">
+		<transition name="fade">
+			<div v-show="show" >hello world</div>
+		</transition>
+		<button @click="handleClick">change</button>
+	</div>
+	<script src="../vue.js"></script>
+	<script>
+		
+		
 
-
-<slot v-for="item of list">
-	  item="item"
-</slot>
+		var vm = new Vue({
+			el: '#root',
+			data: {
+				show: false
+			},
+			methods: {
+				handleClick: function(){
+					this.show = !this.show;
+				}
+			}
+		});
+	</script>
+</body>
+</html>

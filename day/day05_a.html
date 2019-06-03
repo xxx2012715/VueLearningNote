@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue learning</title>
+	<style>
+		/*test02: Vue中的列表过渡*/
+		.v-enter, .v-leave-to {
+			opacity: 0;
+		}
+		.v-enter-active, .v-leave-active {
+			transition: opacity 1s;
+		}
+	</style>
+
+</head>
+<body>
+	
+	<div id="root">
+		
+		<!-- test01: vue中多个元素 -->
+		<!-- <transition> 
+			<div v-if="show">hello world</div>
+			<div v-else>bye world</div>
+		</transition>
+		<button @click="handleClick">change</button> -->
+
+		
+		<!-- test02: Vue中的列表过渡 -->
+		<transition-group>
+			<div v-for="item of list" :key="item.id">{{item.title}}</div>
+		</transition-group>
+		<button @click="handleBtnClick">Add</button>
+
+
+	</div>
+
+	<script src="../vue.js"></script>
+	<script>
+		
+		// test01: 
+		// var vm = new Vue({
+		// 	el: '#root',
+		// 	data: {
+		// 		show: true
+		// 	},
+		// 	methods: {
+		// 		handleClick: function(){
+		// 			this.show = !this.show;
+		// 		}
+		// 	}
+		// });
+
+
+		// test02: Vue中的列表过渡
+		var count = 0;
+
+		var vm = new Vue({
+			el: '#root',
+			data: {
+				list: []
+			},
+			methods: {
+				handleBtnClick: function(){
+					this.list.push({
+						id: count++,
+						title: 'hello world'
+					});
+				}
+			}
+		})
+
+
+	</script>
+
+</body>
+</html>
