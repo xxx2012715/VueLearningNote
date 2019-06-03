@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+	<div id="root">
+
+		<!-- test01: is -->
+	<!-- <table>
+			<tbody> -->
+				<!-- 此处若不加is属性，template中的tr td会添加到tbody上头，而不是在tbody中，引起小bug -->
+				<!-- <tr is="row"></tr>
+				<tr is="row"></tr>
+				<tr is="row"></tr>
+			</tbody>
+		</table>
+ -->
+
+		<!-- test02:  -->
+		<!-- <div ref="hello"
+			 @click="handleClick">点击
+		</div> -->
+		
+
+		<!-- test03:  -->
+		<!-- <counter ref="counter1" @change="handleChange"></counter>
+		<counter ref="counter2" @change="handleChange"></counter>
+		<div >{{total}}</div> -->
+
+
+		<!-- test04:  -->
+		<counter ref="c1" :count="00" @change="handleClickChange"></counter>
+		<counter ref="c2" :count="01" @change="handleClickChange"></counter>
+		<div>{{total}}</div>
+
+
+	</div>
+
+
+
+
+	<script src="../vue.min.js"></script>
+	<script>
+
+		// test01: 
+		// Vue.component('row', {
+		// 	//非根组件下，data是一个函数而非对象，需state为函数且返回需要的data内容
+		// 	data: function(){
+		// 		return {
+		// 			content: 'this is a row'
+		// 		}
+		// 	},
+		// 	template: '<tr><td>{{content}}</td></tr>'
+		// });
+		// var vm = new Vue({
+		// 	el: '#root',
+		// 	data: {
+
+		// 	},
+		// 	methods: {
+
+		// 	}
+		// });
+
+
+		// test02: 
+		// var vm = new Vue({
+		// 	el: '#root',
+		// 	methods: {
+		// 		handleClick: function(){
+		// 			alert(this.$refs.hello.innerHTML);
+		// 		}
+		// 	}
+		// });
+
+
+		// test03: 
+		// Vue.component('counter', {
+		// 	template: '<div @click="handleClick">{{number}}</div>',
+		// 	data: function(){
+		// 		return {
+		// 			number: 0
+		// 		}
+		// 	},
+		// 	methods: {
+		// 		handleClick: function(){
+		// 			this.number++;
+		// 			this.$emit('change');
+		// 		}
+		// 	}
+		// });
+		// var vm = new Vue({
+		// 	el: '#root',
+		// 	data: {
+		// 		total: 0
+		// 	},
+		// 	methods: {
+		// 		handleChange: function(){
+		// 			this.total = this.$refs.counter1.number + this.$refs.counter2.number;
+		// 		}
+		// 	}
+		// });
+
+
+		// test04: 
+		var counter = {
+			props: ['count'],
+			data: function(){
+				return {
+					number: this.count
+				}
+			},
+			template: '<div @click="handleClick">{{number}}</div>',
+			methods: {
+				handleClick: function(){
+					this.number += 2;
+					this.$emit('change', 2);
+				}
+			}
+		};
+
+		var vm = new Vue({
+			el: '#root',
+			components: {
+				counter: counter
+			},
+			data: {
+				total: 0
+			},
+			methods: {
+				handleClickChange: function(step){
+					this.total += step;
+				}
+			}
+		});
+
+	</script>
+
+</body>
+</html>

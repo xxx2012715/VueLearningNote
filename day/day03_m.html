@@ -5,7 +5,7 @@
 	<title>Document</title>
 	<style>
 		/*仿购物车样式*/
-		/*table {
+		table {
 			border: 1px solid black;
 		}
 		table {
@@ -20,14 +20,14 @@
 		}
 		td {
 			text-align: center;
-		}*/
+		}
 
 
 	</style>
 </head>
 <body>
 	<!-- test01: 仿购物车 -->
-	<!-- <div id="app">
+	<div id="app">
 		<table>
 			<tr>
 				<th>序号</th>
@@ -50,8 +50,8 @@
 				</td>
 			</tr>
 		</table>
-		总价 ： {{totalprice()}} 元
-	</div> -->
+		总价 ： {{totalprice}} 元
+	</div>
 	
 
 	<!-- test02: 多选框 -->
@@ -76,40 +76,40 @@
 	<script src="../vue.min.js"></script>
 	<script>
 		// test01: 仿购物车
-		// var app = new Vue({
-		// 	el: '#app',
-		// 	data: {
-		// 		list: [
-		// 			{
-		// 				id: 1,
-		// 				name: 'iphone 8',
-		// 				price: 5099,
-		// 				count: 1
-		// 			},
-		// 			{
-		// 				id: 2,
-		// 				name: 'iphone xs',
-		// 				price: 8699,
-		// 				count: 1
-		// 			},
-		// 			{
-		// 				id: 3,
-		// 				name: 'iphone xr',
-		// 				price: 6499,
-		// 				count: 1
-		// 			}
-		// 		]
-		// 	},
-		// 	methods: {
-		// 		totalprice: function(){
-		// 			var totalprice = 0;
-		// 			for(let i = 0; i < this.list.length; i++){
-		// 				totalprice += this.list[i].price * this.list[i].count;
-		// 			}
-		// 			return totalprice;
-		// 		}
-		// 	}
-		// });
+		var app = new Vue({
+			el: '#app',
+			data: {
+				list: [
+					{
+						id: 1,
+						name: 'iphone 8',
+						price: 5099,
+						count: 1
+					},
+					{
+						id: 2,
+						name: 'iphone xs',
+						price: 8699,
+						count: 1
+					},
+					{
+						id: 3,
+						name: 'iphone xr',
+						price: 6499,
+						count: 1
+					}
+				]
+			},
+			computed: {
+				totalprice: function(){
+					var totalprice = 0;
+					for(let i = 0; i < this.list.length; i++){
+						totalprice += this.list[i].price * this.list[i].count;
+					}
+					return totalprice;
+				}
+			}
+		});
 		//总结：
 		//		v-bind:disabled="iphone.count===0"
 		//		v-for="iphone in list"

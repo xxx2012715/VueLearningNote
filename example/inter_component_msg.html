@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div li {
+			height: 50px;
+			line-height: 50px;
+			font-size: 30px;
+			border: 1px solid black;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	
+	<div id="root">
+		<child content="cont1"></child>
+		<child content="cont2"></child>
+	</div>
+
+
+	<script src="../vue.js"></script>
+	<script>
+		Vue.prototype.bus = new Vue();
+		var child = {
+			props: {
+				content: String
+			},
+			template: '<li @click="handleClick">{{cont}}</li>',
+			data: function(){
+				return {
+					cont :this.content
+				}
+			},
+			methods: {
+				handleClick: function(){
+					this.bus.$emit('change', this.cont);
+				}
+			},
+			mounted: function(){
+				var _this = this;
+				this.bus.$on('change', function(cont){
+					_this.cont = cont;
+				})
+			}
+		};
+
+
+		var vm = new Vue({
+			el: '#root',
+			components: {
+				child: child
+			}
+		});
+
+	</script>
+
+</body>
+</html>

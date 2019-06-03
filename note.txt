@@ -65,8 +65,57 @@ note:
 	----list: item in list 	object: value of object----
 
 	list操作:
-	pop   push	 shift	 unshift    splice    sort	 splice
+	pop   push	 shift	 unshift    splice    sort	 
 
 	Vue.set 
 		1.改变对象内容实现数据变化
 		
+day04:
+	is:
+		h5编码规范中table下tbody下tr，若tr替换为其他组件需添加is属性指向组件,同ul>li, ol>li, select>option等等
+
+	data: ()
+		非根组件下，data是一个函数而非对象，需state为函数且返回需要的data内容,每个子组件都应该有自己的数据，通过函数返回对象使得子组件拥有自己的数据
+
+	ref: 
+		this.$refs.'ref_value' 获取DOM对象,若为标签,则获得为DOM元素,若为父组件则为组件引用
+
+	父子组件传值:
+		1.v-bind加冒号则传递数字,否则传递为字符串
+		2.单向数据流,父组件传递给子组件的内容不要修改,只能使用。可拷贝，作为副本修改使用。
+		3.父组件通过属性bind传值，子组件通过事件触发的形式传值
+
+	组件参数校验与非Props特性:
+		props: { type: , required, default}
+		非Props特性--父组件传值，子组件不接收，无法使用
+
+	组件绑定原生事件:
+		组件上添加@click.native="", 即native修饰符即可
+
+	非父子组件间传值(Bud/总线/发布订阅模式/观察者模式):
+		总线机制:
+		1.Vue.prototype.bus = new Vue();
+		2.methods > this.bus.$emit('', this.value);
+		3.mounted > this.bus.$on('', function(){})
+
+	Vue中的插槽(slot):
+		父组件<child>	
+				<p slot="s1"></p> 
+					content	
+				<p slot="s2"></p>  
+			 </child>
+		子组件template: 
+			<slot name="s1"></slot>
+			<slot name="s2"></slot>
+	作用域插槽:
+		template slot-scope="x"
+		{{x.item}}
+
+		<slot v-for="item of list" :item=item></slot>
+
+
+
+
+
+
+

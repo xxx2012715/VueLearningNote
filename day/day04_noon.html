@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+	<div id="root">
+
+		<!-- test01: 组件参数校验与非Props特性 -->
+		<!-- <child content="hello world"></child> -->
+
+		
+		<!-- test02: 组件绑定原生事件 -->
+					<!-- 自定义事件 -->
+		<!-- <child @pclick="handleClick"></child> -->
+		<child @click.native="handleClick"></child>
+		
+
+	</div>
+	
+
+
+	<script src="../vue.js"></script>
+	<script>
+		
+		// test01: 组件参数校验与非Props特性
+		// var child = {
+		// 	props: {
+		// 		content: {
+		// 			type: [Number, String],
+		// 			required: false,
+		// 			default: 'default value'
+		// 		}
+		// 	},
+		// 	template: '<div>{{content}}</div>',
+			
+		// };
+		// var vm = new Vue({
+		// 	el: '#root',
+		// 	components: {
+		// 		child: child
+		// 	}
+		// });	
+
+
+		// test02: 元素原生事件 
+		// Vue.component('child', {
+		// 					//原生click事件
+		// 	template: '<div @click="handleChildClick">Child</div>',
+		// 	methods: {
+		// 		handleChildClick: function(){
+		// 			alert('child click');
+		// 			this.$emit('pclick');
+		// 		}
+		// 	}
+
+		// });
+		// var vm = new Vue({
+		// 	el: '#root',
+		// 	methods: {
+		// 		handleClick: function(){
+		// 			alert('Customise');
+		// 		}
+		// 	}
+
+		// });
+		// test03: 组件绑定原生事件
+		Vue.component('child', {
+							//原生click事件
+			template: '<div>Child</div>',
+			
+
+		});
+		var vm = new Vue({
+			el: '#root',
+			methods: {
+				handleClick: function(){
+					alert('Customise');
+				}
+			}
+
+		});
+
+	</script>
+</body>
+</html>

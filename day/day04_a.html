@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+	<div id="root">
+		
+		<!-- test01: 非父子组件间传值(Bud/总线/发布订阅模式/观察者模式) -->
+		<!-- <child content="Dell" ></child>
+		<child content="Lee"></child> -->
+
+
+		<!-- test02: Vue中的插槽 -->
+		<div id="root">
+			<p>test text</p>
+			<child>
+				<p slot="head">head_Dell</p>
+				
+				<p slot="foot">foot_Dell</p>
+			</child>
+		</div>
+
+
+	</div>
+
+	<script src="../vue.js"></script>
+	<script>
+		
+		// test01: 非父子组件间传值(Bud/总线/发布订阅模式/观察者模式)
+		// Vue.prototype.bus = new Vue();
+		// Vue.component('child', {
+		// 	props: {
+		// 		content: String
+		// 	},
+		// 	template: '<div @click="handleClick">{{cont}}</div>',
+		// 	data: function(){
+		// 		return {
+		// 			cont: this.content
+		// 		}
+		// 	},
+		// 	methods: {
+		// 		handleClick: function(){
+		// 			// alert(this.cont);
+		// 			this.bus.$emit('change', this.cont);
+		// 		}
+		// 	},
+		// 	//mounted组件被挂载的时候监听bus的改变
+		// 	mounted: function(){
+		// 		var _this = this;
+		// 		this.bus.$on('change', function(msg){
+		// 			_this.cont = msg;
+		// 		});
+		// 	}
+		// });
+
+		// var vm = new Vue({
+		// 	el: '#root'
+		// });
+
+
+		// test02: Vue中的插槽
+		var child = {
+			props: {
+				content: String
+			},
+			template: `<div>
+							<slot name="head"></slot>
+							<p>content</p>
+							<slot name="foot"></slot>
+					   </div>`,
+		}
+		var vm = new Vue({
+			el: '#root',
+			components: {
+				child: child
+			}
+		})
+
+	</script>
+
+</body>
+</html>
